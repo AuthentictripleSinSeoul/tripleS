@@ -2,19 +2,101 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Webpage</title>
+    <title>tripleS Cheering guide</title>
+    <!-- CDN include -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Google Fonts Import -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <!-- Stylesheet Import -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Mobile Menu Icon -->
+<div class="mobile-icon">
+   <i class="fas fa-bars fa-2x" id="mobile-icon"></i>
+</div>
+
     <!-- Tab and Image Container -->
     <div id="tabs-container" class="desktop-tabs"></div>
     <div id="image-container"></div>
 
+    <!-- Mobile Menu Container -->
+    <div id="mobile-menu-container" class="mobile-menu">
+        <!-- Close Button for Mobile Menu -->
+        <div id="mobile-menu-close-btn" class="mobile-menu-close-btn">&times;</div>
+    </div>
+
     <!-- JavaScript File Import -->
     <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const mobileIcon = document.getElementById('mobile-icon');
+            const mobileMenuContainer = document.getElementById('mobile-menu-container');
+            const mobileMenuCloseBtn = document.getElementById('mobile-menu-close-btn');
+            const tabsContainer = document.getElementById('tabs-container');
+            const imageContainer = document.getElementById('image-container');
+
+            // Function to check if the device is mobile view
+            function isMobile() {
+                return window.innerWidth <= 768;
+            }
+
+            // Function to show tabs
+            function showTabs() {
+                tabsContainer.style.display = 'flex';
+            }
+
+            // Function to hide tabs
+            function hideTabs() {
+                tabsContainer.style.display = 'none';
+            }
+
+            // Initial setup: hide mobile menu
+            $(mobileMenuContainer).hide();
+
+            // Function to toggle mobile menu
+            function toggleMobileMenu() {
+                if (isMobile()) {
+                    $(mobileMenuContainer).toggle();
+                } else {
+                    showTabs();
+                }
+            }
+
+            // Mobile icon click event listener
+            if (mobileIcon) {
+                mobileIcon.addEventListener('click', function (event) {
+                    toggleMobileMenu();
+                    event.stopPropagation(); // Prevents the click event from propagating to the document
+                });
+            }
+
+            // Image click event listener to open mobile menu
+            if (imageContainer) {
+                imageContainer.addEventListener('click', function () {
+                    if (isMobile()) {
+                        $(mobileMenuContainer).show();
+                    }
+                });
+            }
+
+            // Close button click event listener
+            if (mobileMenuCloseBtn) {
+                mobileMenuCloseBtn.addEventListener('click', function (event) {
+                    $(mobileMenuContainer).hide();
+                    event.stopPropagation(); // Prevents the click event from propagating to the document
+                });
+            }
+
+            // Document click event listener to close mobile menu when clicking outside
+            document.addEventListener('click', function () {
+                if (isMobile()) {
+                    $(mobileMenuContainer).hide();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
