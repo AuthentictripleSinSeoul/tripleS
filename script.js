@@ -1,8 +1,6 @@
-// script.js
 document.addEventListener("DOMContentLoaded", function () {
     const tabsContainer = document.getElementById('tabs-container');
     const imageContainer = document.getElementById('image-container');
-
     const tabNames = ["Generation", "Rising", "Cherry Talk", "Touch+", "Girl's Capitalism", "Invincible", "Just Do It"];
     const imageSources = ["generation.png", "rising.jpg", "cherry-talk.jpg", "touch-plus.jpg", "girls-capitalism.jpg", "invincible.jpg", "just-do-it.jpg"];
 
@@ -11,13 +9,12 @@ document.addEventListener("DOMContentLoaded", function () {
         const tab = document.createElement('div');
         tab.classList.add('desktop-tab');
         tab.innerHTML = `<span class="tab-text">${tabNames[i]}</span>`;
+        tabsContainer.appendChild(tab);
 
         // Event listener for tab click
         tab.addEventListener('click', function () {
             changeTab(i);
         });
-
-        tabsContainer.appendChild(tab);
     }
 
     // Initial image display
@@ -52,23 +49,24 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Function to check if the device is in mobile view
-    function isMobile() {
-        return window.innerWidth <= 768; // Adjust the width threshold as needed
+    function getDeviceType() {
+        return window.innerWidth <= 768 ? "Mobile" : "PC"; // Adjust the width threshold as needed
     }
 
     // Event listener for touch/swipe on mobile
-    let startX;
+    let touchStartX;
 
     tabsContainer.addEventListener('touchstart', function (e) {
-        if (isMobile()) {
-            startX = e.touches[0].clientX;
+        if (getDeviceType() === "Mobile") {
+            touchStartX = e.touches[0].clientX;
+            console.log("Touched (Mobile)");
         }
     });
 
-    tabsContainer.addEventListener('touchmove', function (e) {
-        if (isMobile()) {
-            const moveX = e.touches[0].clientX;
-            const diffX = startX - moveX;
+    tabsContainer.addEventListener('touchend', function (e) {
+        if (getDeviceType() === "Mobile") {
+            const touchEndX = e.changedTouches[0].clientX;
+            const diffX = touchStartX - touchEndX;
 
             // Threshold for swipe detection
             if (Math.abs(diffX) > 50) {
@@ -87,4 +85,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     });
+
+    console.log("Joined as " + getDeviceType());
 });
