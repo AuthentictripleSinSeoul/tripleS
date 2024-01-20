@@ -1,6 +1,12 @@
+// Function to check if the device is mobile view
+function isMobile() {
+    return window.innerWidth <= 768; // Adjust the width threshold as needed
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     const tabsContainer = document.getElementById('tabs-container');
     const imageContainer = document.getElementById('image-container');
+    const mobileMenuContainer = document.getElementById('mobile-menu-container');
     const tabNames = ["Generation", "Rising", "Cherry Talk", "Touch+", "Girl's Capitalism", "Invincible", "Just Do It"];
     const imageSources = ["generation.png", "rising.jpg", "cherry-talk.jpg", "touch-plus.jpg", "girls-capitalism.jpg", "invincible.jpg", "just-do-it.jpg"];
 
@@ -28,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Create new image element
         const image = document.createElement('img');
         image.src = imageSource;
-        image.alt = 'Page Image';
+        image.alt = 'Cheering guide image';
 
         // Append image to the container
         imageContainer.appendChild(image);
@@ -48,43 +54,55 @@ document.addEventListener("DOMContentLoaded", function () {
         showImage(imageSources[index]);
     }
 
-    // Function to check if the device is in mobile view
-    function getDeviceType() {
-        return window.innerWidth <= 768 ? "Mobile" : "PC"; // Adjust the width threshold as needed
+    // Toggle mobile menu
+    window.toggleMobileMenu = function () {
+        const menuContainer = document.getElementById('mobile-menu-container');
+        menuContainer.classList.toggle('active');
+    };
+
+    function toggleMobileMenu() {
+        if (isMobile()) {
+            const menuContainer = document.getElementById('mobile-menu-container');
+            menuContainer.classList.toggle('active');
+        } else {
+            showTabs();
+        }
+    }
+    
+    // Create mobile menu
+    function createMobileMenu() {
+        const menuContainer = document.createElement('div');
+        menuContainer.classList.add('mobile-menu');
+        
+        // Create tabs for mobile menu
+        for (let i = 0; i < tabNames.length; i++) {
+            const mobileTab = document.createElement('div');
+            mobileTab.classList.add('mobile-tab');
+            mobileTab.innerHTML = `<span class="tab-text">${tabNames[i]}</span>`;
+            
+            // Event listener for mobile tab click
+            mobileTab.addEventListener('click', function () {
+                changeTab(i);
+                closeMobileMenu(); // Close the mobile menu after clicking a tab
+            });
+
+            // Append mobile tab to the menu
+            menuContainer.appendChild(mobileTab);
+        }
+
+        // Append mobile menu to the body
+        mobileMenuContainer.appendChild(menuContainer);
     }
 
-    // Event listener for touch/swipe on mobile
-    let touchStartX;
+    // Close mobile menu
+    function closeMobileMenu() {
+        const menuContainer = document.getElementById('mobile-menu-container');
+        menuContainer.classList.remove('active');
+    }
 
-    tabsContainer.addEventListener('touchstart', function (e) {
-        if (getDeviceType() === "Mobile") {
-            touchStartX = e.touches[0].clientX;
-            console.log("Touched (Mobile)");
-        }
-    });
-
-    tabsContainer.addEventListener('touchend', function (e) {
-        if (getDeviceType() === "Mobile") {
-            const touchEndX = e.changedTouches[0].clientX;
-            const diffX = touchStartX - touchEndX;
-
-            // Threshold for swipe detection
-            if (Math.abs(diffX) > 50) {
-                // Swipe right
-                if (diffX > 0) {
-                    const currentTabIndex = Array.from(tabsContainer.children).findIndex(tab => tab.classList.contains('active-tab'));
-                    const nextTabIndex = (currentTabIndex < tabNames.length - 1) ? currentTabIndex + 1 : 0;
-                    changeTab(nextTabIndex);
-                }
-                // Swipe left
-                else {
-                    const currentTabIndex = Array.from(tabsContainer.children).findIndex(tab => tab.classList.contains('active-tab'));
-                    const prevTabIndex = (currentTabIndex > 0) ? currentTabIndex - 1 : tabNames.length - 1;
-                    changeTab(prevTabIndex);
-                }
-            }
-        }
-    });
-
-    console.log("Joined as " + getDeviceType());
+    // Check if the device is mobile and create the mobile menu
+    if (isMobile()) {
+        createMobileMenu();
+    }
 });
+
