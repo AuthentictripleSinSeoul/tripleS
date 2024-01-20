@@ -28,42 +28,40 @@
             margin: 0;
             padding: 0;
             overflow: auto;
-            height: 150vh; /* 페이지가 스크롤 가능하도록 충분한 높이를 지정합니다. */
+            height: 150vh; 
         }
 
         #background-video {
     position: fixed;
     top: 0;
     left: 0;
-    width: 105vw; /* 100% viewport width */
+    width: 105vw; 
     height: auto;
     object-fit: cover;
     z-index: -1;
     transform-origin: top center;
-    transform: translateY(-1650px); /* 원하는 만큼의 값으로 조절 */
-    transform: translateX(-50px); /* 원하는 만큼의 값으로 조절 */
-}
+    transform: translateY(-1650px);
 
-        /* 기존 스타일 유지 */
 
-        /* 추가된 미디어 쿼리 */
+
+
         @media only screen and (min-width: 769px) {
             .mobile-icon {
-                display: none; /* PC에서는 모바일 아이콘을 숨깁니다. */
+                display: none;
             }
 
             .desktop-tabs {
-                display: flex !important; /* PC에서는 탭을 보이도록 설정합니다. */
+                display: flex !important; 
             }
 
             .mobile-menu {
-                display: none !important; /* PC에서는 모바일 메뉴를 숨깁니다. */
+                display: none !important; 
             }
         }
     </style>
 </head>
 <body>
-    <!-- 영상 루핑을 위한 비디오 태그 추가 -->
+    <!-- Loop video -->
     <video id="background-video" autoplay muted loop>
         <source src="1.mp4" type="video/mp4">
         Your browser does not support the video tag.
@@ -156,8 +154,9 @@
                 const scrollY1 = window.scrollY*1.2;
                 const scrollY2 = scrollY1 -1650
                 const scrollY = scrollY2
+                console.log(scrollY)
                 const translateY = `translateY(${scrollY}px)`;
-                const translateX = '-50px' /* transform: translateX(-50px); /* 원하는 만큼의 값으로 조절 */
+                const translateX = '-50px' 
                 backgroundVideo.style.transform = translateY;
             });
         });
