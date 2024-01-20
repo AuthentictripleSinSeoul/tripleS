@@ -7,12 +7,12 @@ const cacheAssets = [
     '/tripleS/styles.css',
     '/tripleS/script.js',
     '/tripleS/generation.png',
-    '/tripleS/rising.jpg',
-    '/tripleS/cherry-talk.jpg',
-    '/tripleS/touch.jpg',
-    '/tripleS/girls-capitalism.jpg',
-    '/tripleS/invincible.jpg',
-    '/tripleS/just-do-it.jpg'
+    '/tripleS/rising.png',
+    '/tripleS/cherry-talk.png',
+    '/tripleS/touch.png',
+    '/tripleS/girls-capitalism.png',
+    '/tripleS/invincible.png',
+    '/tripleS/just-do-it.png'
 ];
 
 self.addEventListener('install', event => {
