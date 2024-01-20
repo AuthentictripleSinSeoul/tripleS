@@ -1,21 +1,16 @@
-/*-CSS ^^-*/
-
-/*-Font import-*/
-/*- font : Montserrat -*/
+/* Font import */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
-
 
 body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    /*-Font Apply-*/
-font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
+/* Styles for desktop tabs */
 .desktop-tabs {
-    /* Existing styles */
-    position: fixed; /* 고정 */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -37,23 +32,23 @@ font-family: 'Montserrat', sans-serif;
     top: 0;
     left: 0;
     pointer-events: none;
-    background: linear-gradient(to right, rgba(155, 227, 255, 0.2) 0%, rgba(165, 155, 255, 0.4) 25%, rgba(155, 227, 255, 0.2) 50%, rgba(165, 155, 255, 0.4) 75%, rgba(155, 227, 255, 0.2) 100%); /* Example gradient with smooth transition and reduced opacity */
+    background: linear-gradient(to right, rgba(155, 227, 255, 0.2) 0%, rgba(165, 155, 255, 0.4) 25%, rgba(155, 227, 255, 0.2) 50%, rgba(165, 155, 255, 0.4) 75%, rgba(155, 227, 255, 0.2) 100%);
     animation: moveGradient 10s linear infinite;
-    z-index: -1; /* Move the gradient behind tabs */
+    z-index: -1;
 }
 
 .desktop-tab {
     cursor: pointer;
-    transition: background 0.3s, transform 0.3s, font-size 0.3s; /* Added font-size transition */
-    padding: 10px; /* Added padding */
-    border-radius: 10px; /* Rounded corners */
-    position: relative; /* Added position relative */
-    z-index: 1; /* Added z-index to bring tabs to the front */
+    transition: background 0.3s, transform 0.3s, font-size 0.3s;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    z-index: 1;
 }
 
 .desktop-tab:hover {
-    background: rgba(255, 255, 255, 0.5); /* 50% opaque white background on hover */
-    font-size: 110%; /* Increase font size on hover */
+    background: rgba(255, 255, 255, 0.5);
+    font-size: 110%;
 }
 
 @keyframes moveGradient {
@@ -65,53 +60,65 @@ font-family: 'Montserrat', sans-serif;
     }
 }
 
-
-
-
-
-
-/* Style for mobile menu icon */
+/* Styles for mobile menu icon */
 .mobile-icon {
-    display: none; /* Initially hidden on desktop */
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: block;
+    z-index: 1000; /* Ensure the icon is above the tabs */
+}
+
+.mobile-icon img {
+    width: 30px;
+    height: 30px;
     cursor: pointer;
 }
 
-/* Style for mobile menu */
+/* Styles for mobile menu */
 .mobile-menu {
-    display: none; /* Initially hidden on desktop */
-    /* Additional styles for mobile menu */
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #fff;
+    padding: 20px;
 }
 
-/* Style for page container */
-.page-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    /* Additional styles for page container */
+/* Styles to hide desktop tabs on mobile */
+@media only screen and (max-width: 600px) {
+    .desktop-tabs {
+        display: none;
+    }
+
+    .mobile-icon {
+        display: block;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
 }
 
-/* Style for page images */
-.page-image {
-    max-width: 100%;
-    max-height: 100%;
+
+/* Styles for mobile tab */
+.mobile-tab {
+    cursor: pointer;
+    padding: 10px;
 }
 
-/* Style for active tab */
-.active-tab {
-    background: rgba(255, 255, 255, 0.5) !important; /* 50% opaque white background */
+.mobile-tab:hover {
+    background: rgba(255, 255, 255, 0.5);
 }
 
-/* Style for Generation tab */
-.desktop-tab:last-child:not(:hover) {
-    font-size: 100%; /* Reset font size */
-    background: transparent; /* No background when not hovered */
-    color: #333; /* Text color for better visibility */
-    border-radius: 0; /* Reset border-radius */
-    opacity: 1; /* Reset opacity */
+/* Styles for active mobile tab */
+.mobile-tab.active-tab {
+    background: rgba(255, 255, 255, 0.5) !important;
 }
+
+/* Additional styles for page container and image */
 #image-container {
-    margin-top: 50px; /* Adjust the margin to avoid overlapping with fixed tabs */
+    margin-top: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -124,11 +131,4 @@ font-family: 'Montserrat', sans-serif;
     max-height: 100%;
     user-drag: none;
     user-select: none;
-}
-
-/* 모바일에서 상단 탭 숨김 */
-@media only screen and (max-width: 600px) {
-    .desktop-tabs {
-        display: none;
-    }
 }
