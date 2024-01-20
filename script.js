@@ -1,14 +1,15 @@
-// Function to check if the device is mobile view
-function isMobile() {
-    return window.innerWidth <= 768; // Adjust the width threshold as needed
-}
-
 document.addEventListener("DOMContentLoaded", function () {
     const tabsContainer = document.getElementById('tabs-container');
     const imageContainer = document.getElementById('image-container');
     const mobileMenuContainer = document.getElementById('mobile-menu-container');
     const tabNames = ["Generation", "Rising", "Cherry Talk", "Touch+", "Girl's Capitalism", "Invincible", "Just Do It"];
     const imageSources = ["generation.png", "rising.jpg", "cherry-talk.jpg", "touch-plus.jpg", "girls-capitalism.jpg", "invincible.jpg", "just-do-it.jpg"];
+
+    // 이미지를 미리 로딩하여 브라우저에 캐시
+    imageSources.forEach(function (src) {
+        const img = new Image();
+        img.src = src;
+    });
 
     // Add tabs dynamically
     for (let i = 0; i < tabNames.length; i++) {
@@ -34,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Create new image element
         const image = document.createElement('img');
         image.src = imageSource;
-        image.alt = 'Cheering guide image';
+        image.alt = 'Page Image';
 
         // Append image to the container
         imageContainer.appendChild(image);
@@ -60,15 +61,6 @@ document.addEventListener("DOMContentLoaded", function () {
         menuContainer.classList.toggle('active');
     };
 
-    function toggleMobileMenu() {
-        if (isMobile()) {
-            const menuContainer = document.getElementById('mobile-menu-container');
-            menuContainer.classList.toggle('active');
-        } else {
-            showTabs();
-        }
-    }
-    
     // Create mobile menu
     function createMobileMenu() {
         const menuContainer = document.createElement('div');
@@ -105,4 +97,3 @@ document.addEventListener("DOMContentLoaded", function () {
         createMobileMenu();
     }
 });
-
