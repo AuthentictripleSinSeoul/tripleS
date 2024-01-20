@@ -1,5 +1,3 @@
-// sw.js
-
 const cacheName = 'Cheering-Guide-Cache-v1';
 const cacheAssets = [
     '/',
