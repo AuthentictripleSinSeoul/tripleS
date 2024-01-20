@@ -1,4 +1,6 @@
-const cacheName = 'Cheering-Guide-Cache-v1';
+// sw.js
+
+const cacheName = 'Cheering-Guide-Cache-v2'; // Update cacheName to trigger an update
 const cacheAssets = [
     '/tripleS/index.html',
     '/tripleS/styles.css',
@@ -25,6 +27,21 @@ self.addEventListener('fetch', event => {
     event.respondWith(
         caches.match(event.request).then(response => {
             return response || fetch(event.request);
+        })
+    );
+});
+
+// Cache update logic
+self.addEventListener('activate', event => {
+    event.waitUntil(
+        caches.keys().then(cacheNames => {
+            return Promise.all(
+                cacheNames.map(cache => {
+                    if (cache !== cacheName) {
+                        return caches.delete(cache);
+                    }
+                })
+            );
         })
     );
 });
