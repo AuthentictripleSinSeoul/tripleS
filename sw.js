@@ -1,7 +1,7 @@
 const cacheName = 'Cheering-Guide-Cache-v1';
 const cacheAssets = [
     '/',
-    '/index.html',
+    '/tripleS/index.html',
     '/tripleS/styles.css',
     '/tripleS/script.js',
     '/tripleS/generation.png',
