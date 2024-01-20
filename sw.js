@@ -10,7 +10,7 @@ const cacheAssets = [
     '/tripleS/touch.png',
     '/tripleS/girls-capitalism.png',
     '/tripleS/invincible.png',
-    '/tripleS/just-do-it.png'
+    '/tripleS/just-do-it.png',
     '/tripleS/1.mp4'
 ];
 
