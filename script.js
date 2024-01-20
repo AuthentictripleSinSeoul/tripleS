@@ -2,13 +2,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const tabsContainer = document.getElementById('tabs-container');
     const imageContainer = document.getElementById('image-container');
     const mobileMenuContainer = document.getElementById('mobile-menu-container');
-    const tabNames = ["Generation", "Rising", "Cherry Talk", "Touch+", "Girl's Capitalism", "Invincible", "Just Do It"];
-    const imageSources = ["generation.png", "rising.jpg", "cherry-talk.jpg", "touch-plus.jpg", "girls-capitalism.jpg", "invincible.jpg", "just-do-it.jpg"];
+    const tabNames = ["Generation", "Rising", "Cherry Talk", "Touch", "Girl's Capitalism", "Invincible", "Just Do It"];
+    const imageSources = ["generation.png", "rising.jpg", "cherry-talk.jpg", "touch.jpg", "girls-capitalism.jpg", "invincible.jpg", "just-do-it.jpg"];
 
     // 이미지를 미리 로딩하여 브라우저에 캐시
+    const images = [];
     imageSources.forEach(function (src) {
         const img = new Image();
         img.src = src;
+        images.push(img);
     });
 
     // Add tabs dynamically
@@ -25,17 +27,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Initial image display
-    showImage(imageSources[0]);
+    showImage(images[0]);
 
     // Function to change the displayed image
-    function showImage(imageSource) {
+    function showImage(image) {
         // Clear existing images
         imageContainer.innerHTML = '';
-
-        // Create new image element
-        const image = document.createElement('img');
-        image.src = imageSource;
-        image.alt = 'Page Image';
 
         // Append image to the container
         imageContainer.appendChild(image);
@@ -52,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
         tabsContainer.children[index].classList.add('active-tab');
 
         // Change the displayed image
-        showImage(imageSources[index]);
+        showImage(images[index]);
     }
 
     // Toggle mobile menu
@@ -95,5 +92,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // Check if the device is mobile and create the mobile menu
     if (isMobile()) {
         createMobileMenu();
+    }
+
+    // Function to check if the device is mobile view
+    function isMobile() {
+        return window.innerWidth <= 768; // Adjust the width threshold as needed
     }
 });
