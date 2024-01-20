@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const imageContainer = document.getElementById('image-container');
     const mobileMenuContainer = document.getElementById('mobile-menu-container');
     const tabNames = ["Generation", "Rising", "Cherry Talk", "Touch", "Girl's Capitalism", "Invincible", "Just Do It"];
-    const imageSources = ["generation.png", "rising.jpg", "cherry-talk.jpg", "touch.jpg", "girls-capitalism.jpg", "invincible.jpg", "just-do-it.jpg"];
+    const imageSources = ["generation.png", "rising.png", "cherry-talk.png", "touch.png", "girls-capitalism.png", "invincible.png", "just-do-it.png"];
 
     // 이미지를 미리 로딩하여 브라우저에 캐시
     const images = [];
