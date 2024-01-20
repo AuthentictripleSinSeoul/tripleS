@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const tabNames = ["Generation", "Rising", "Cherry Talk", "Touch", "Girl's Capitalism", "Invincible", "Just Do It"];
     const imageSources = ["generation.png", "rising.png", "cherry-talk.png", "touch.png", "girls-capitalism.png", "invincible.png", "just-do-it.png"];
 
-    // 이미지를 미리 로딩하여 브라우저에 캐시
+    // 이미지 브라우저 캐시 (예비)
     const images = [];
     imageSources.forEach(function (src) {
         const img = new Image();
@@ -83,13 +83,13 @@ document.addEventListener("DOMContentLoaded", function () {
         mobileMenuContainer.appendChild(menuContainer);
     }
 
-    // Close mobile menu
+    // Close mobile menu (backup)
     function closeMobileMenu() {
         const menuContainer = document.getElementById('mobile-menu-container');
         menuContainer.classList.remove('active');
     }
 
-    // Check if the device is mobile and create the mobile menu
+    // Check if the device is mobile and create the mobile menu 
     if (isMobile()) {
         createMobileMenu();
     }
