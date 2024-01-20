@@ -65,7 +65,37 @@ self.addEventListener('activate', event => {
     // 강제로 서비스 워커를 활성화
     return self.clients.claim();
 });
+self.addEventListener('fetch', event => {
+    event.respondWith(
+        caches.match(event.request).then(cachedResponse => {
+            // 캐시에 해당 자원이 있으면 반환
+            if (cachedResponse) {
+                return cachedResponse;
+            }
 
+            // 캐시에 해당 자원이 없으면 네트워크에서 가져오기 시도
+            return fetch(event.request)
+                .then(networkResponse => {
+                    // Response 객체를 생성해서 반환
+                    return new Response(networkResponse.body, {
+                        status: networkResponse.status,
+                        statusText: networkResponse.statusText,
+                        headers: networkResponse.headers
+                    });
+                })
+                .catch(error => {
+                    // 네트워크에서 자원을 가져오지 못하면 예외 처리
+                    console.error('Fetch failed:', error);
+
+                    // 적절한 에러 응답을 생성해서 반환
+                    return new Response('Network error occurred.', {
+                        status: 500,
+                        statusText: 'Internal Server Error'
+                    });
+                });
+        })
+    );
+});
 self.addEventListener('fetch', event => {
     event.respondWith(
         caches.match(event.request).then(cachedResponse => {
