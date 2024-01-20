@@ -11,6 +11,19 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <!-- Stylesheet Import -->
     <link rel="stylesheet" href="styles.css">
+<!-- 서비스워커 -->
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+            .then(registration => {
+                console.log('Service Worker registered with scope:', registration.scope);
+            })
+            .catch(error => {
+                console.error('Service Worker registration failed:', error);
+            });
+    }
+</script>
+
 </head>
 <body>
     <!-- Mobile Menu Icon -->
