@@ -1,99 +1,99 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tripleS Cheering guide</title>
-    <!-- CDN include -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Google Fonts Import -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
-    <!-- Stylesheet Import -->
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <!-- Mobile Menu Icon -->
-<div class="mobile-icon">
-   <i class="fas fa-bars fa-2x" id="mobile-icon"></i>
-</div>
+document.addEventListener("DOMContentLoaded", function () {
+    const tabsContainer = document.getElementById('tabs-container');
+    const imageContainer = document.getElementById('image-container');
+    const mobileMenuContainer = document.getElementById('mobile-menu-container');
+    const tabNames = ["Generation", "Rising", "Cherry Talk", "Touch+", "Girl's Capitalism", "Invincible", "Just Do It"];
+    const imageSources = ["generation.png", "rising.jpg", "cherry-talk.jpg", "touch-plus.jpg", "girls-capitalism.jpg", "invincible.jpg", "just-do-it.jpg"];
 
-    <!-- Tab and Image Container -->
-    <div id="tabs-container" class="desktop-tabs"></div>
-    <div id="image-container"></div>
+    // 이미지를 미리 로딩하여 브라우저에 캐시
+    imageSources.forEach(function (src) {
+        const img = new Image();
+        img.src = src;
+    });
 
-    <!-- Mobile Menu Container -->
-    <div id="mobile-menu-container" class="mobile-menu">
+    // Add tabs dynamically
+    for (let i = 0; i < tabNames.length; i++) {
+        const tab = document.createElement('div');
+        tab.classList.add('desktop-tab');
+        tab.innerHTML = `<span class="tab-text">${tabNames[i]}</span>`;
+        tabsContainer.appendChild(tab);
 
-    <!-- JavaScript File Import -->
-    <script src="script.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const mobileIcon = document.getElementById('mobile-icon');
-            const mobileMenuContainer = document.getElementById('mobile-menu-container');
-            const mobileMenuCloseBtn = document.getElementById('mobile-menu-close-btn');
-            const tabsContainer = document.getElementById('tabs-container');
-            const imageContainer = document.getElementById('image-container');
-
-            // Function to check if the device is mobile view
-            function isMobile() {
-                return window.innerWidth <= 768;
-            }
-
-            // Function to show tabs
-            function showTabs() {
-                tabsContainer.style.display = 'flex';
-            }
-
-            // Function to hide tabs
-            function hideTabs() {
-                tabsContainer.style.display = 'none';
-            }
-
-            // Initial setup: hide mobile menu
-            $(mobileMenuContainer).hide();
-
-            // Function to toggle mobile menu
-            function toggleMobileMenu() {
-                if (isMobile()) {
-                    $(mobileMenuContainer).toggle();
-                } else {
-                    showTabs();
-                }
-            }
-
-            // Mobile icon click event listener
-            if (mobileIcon) {
-                mobileIcon.addEventListener('click', function (event) {
-                    toggleMobileMenu();
-                    event.stopPropagation(); // Prevents the click event from propagating to the document
-                });
-            }
-
-            // Image click event listener to open mobile menu
-            if (imageContainer) {
-                imageContainer.addEventListener('click', function () {
-                    if (isMobile()) {
-                        $(mobileMenuContainer).show();
-                    }
-                });
-            }
-
-            // Close button click event listener
-            if (mobileMenuCloseBtn) {
-                mobileMenuCloseBtn.addEventListener('click', function (event) {
-                    $(mobileMenuContainer).hide();
-                    event.stopPropagation(); // Prevents the click event from propagating to the document
-                });
-            }
-
-            // Document click event listener to close mobile menu when clicking outside
-            document.addEventListener('click', function () {
-                if (isMobile()) {
-                    $(mobileMenuContainer).hide();
-                }
-            });
+        // Event listener for tab click
+        tab.addEventListener('click', function () {
+            changeTab(i);
         });
-    </script>
-</body>
-</html>
+    }
+
+    // Initial image display
+    showImage(imageSources[0]);
+
+    // Function to change the displayed image
+    function showImage(imageSource) {
+        // Clear existing images
+        imageContainer.innerHTML = '';
+
+        // Create new image element
+        const image = document.createElement('img');
+        image.src = imageSource;
+        image.alt = 'Page Image';
+
+        // Append image to the container
+        imageContainer.appendChild(image);
+    }
+
+    // Function to change the active tab
+    function changeTab(index) {
+        // Remove active class from all tabs
+        document.querySelectorAll('.desktop-tab').forEach(function (tab) {
+            tab.classList.remove('active-tab');
+        });
+
+        // Add active class to the clicked tab
+        tabsContainer.children[index].classList.add('active-tab');
+
+        // Change the displayed image
+        showImage(imageSources[index]);
+    }
+
+    // Toggle mobile menu
+    window.toggleMobileMenu = function () {
+        const menuContainer = document.getElementById('mobile-menu-container');
+        menuContainer.classList.toggle('active');
+    };
+
+    // Create mobile menu
+    function createMobileMenu() {
+        const menuContainer = document.createElement('div');
+        menuContainer.classList.add('mobile-menu');
+        
+        // Create tabs for mobile menu
+        for (let i = 0; i < tabNames.length; i++) {
+            const mobileTab = document.createElement('div');
+            mobileTab.classList.add('mobile-tab');
+            mobileTab.innerHTML = `<span class="tab-text">${tabNames[i]}</span>`;
+            
+            // Event listener for mobile tab click
+            mobileTab.addEventListener('click', function () {
+                changeTab(i);
+                closeMobileMenu(); // Close the mobile menu after clicking a tab
+            });
+
+            // Append mobile tab to the menu
+            menuContainer.appendChild(mobileTab);
+        }
+
+        // Append mobile menu to the body
+        mobileMenuContainer.appendChild(menuContainer);
+    }
+
+    // Close mobile menu
+    function closeMobileMenu() {
+        const menuContainer = document.getElementById('mobile-menu-container');
+        menuContainer.classList.remove('active');
+    }
+
+    // Check if the device is mobile and create the mobile menu
+    if (isMobile()) {
+        createMobileMenu();
+    }
+});
