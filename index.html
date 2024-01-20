@@ -11,25 +11,68 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <!-- Stylesheet Import -->
     <link rel="stylesheet" href="styles.css">
-<!-- 서비스워커 -->
-<script>
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/tripleS/sw.js')
-            .then(registration => {
-                console.log('Service Worker registered with scope:', registration.scope);
-            })
-            .catch(error => {
-                console.error('Service Worker registration failed:', error);
-            });
-    }
-</script>
+    <!-- 서비스워커 -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js')
+                .then(registration => {
+                    console.log('Service Worker registered with scope:', registration.scope);
+                })
+                .catch(error => {
+                    console.error('Service Worker registration failed:', error);
+                });
+        }
+    </script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: auto;
+            height: 150vh; /* 페이지가 스크롤 가능하도록 충분한 높이를 지정합니다. */
+        }
 
+        #background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 105vw; /* 100% viewport width */
+    height: auto;
+    object-fit: cover;
+    z-index: -1;
+    transform-origin: top center;
+    transform: translateY(-1650px); /* 원하는 만큼의 값으로 조절 */
+    transform: translateX(-50px); /* 원하는 만큼의 값으로 조절 */
+}
+
+        /* 기존 스타일 유지 */
+
+        /* 추가된 미디어 쿼리 */
+        @media only screen and (min-width: 769px) {
+            .mobile-icon {
+                display: none; /* PC에서는 모바일 아이콘을 숨깁니다. */
+            }
+
+            .desktop-tabs {
+                display: flex !important; /* PC에서는 탭을 보이도록 설정합니다. */
+            }
+
+            .mobile-menu {
+                display: none !important; /* PC에서는 모바일 메뉴를 숨깁니다. */
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- 영상 루핑을 위한 비디오 태그 추가 -->
+    <video id="background-video" autoplay muted loop>
+        <source src="1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
     <!-- Mobile Menu Icon -->
-<div class="mobile-icon">
-   <i class="fas fa-bars fa-2x" id="mobile-icon"></i>
-</div>
+    <div class="mobile-icon">
+       <i class="fas fa-bars fa-2x" id="mobile-icon"></i>
+    </div>
 
     <!-- Tab and Image Container -->
     <div id="tabs-container" class="desktop-tabs"></div>
@@ -47,6 +90,7 @@
             const mobileMenuCloseBtn = document.getElementById('mobile-menu-close-btn');
             const tabsContainer = document.getElementById('tabs-container');
             const imageContainer = document.getElementById('image-container');
+            const backgroundVideo = document.getElementById('background-video');
 
             // Function to check if the device is mobile view
             function isMobile() {
@@ -105,6 +149,16 @@
                 if (isMobile()) {
                     $(mobileMenuContainer).hide();
                 }
+            });
+
+            // Scroll event listener to move the video along with the scroll
+            window.addEventListener('scroll', function () {
+                const scrollY1 = window.scrollY*1.2;
+                const scrollY2 = scrollY1 -1650
+                const scrollY = scrollY2
+                const translateY = `translateY(${scrollY}px)`;
+                const translateX = '-50px' /* transform: translateX(-50px); /* 원하는 만큼의 값으로 조절 */
+                backgroundVideo.style.transform = translateY;
             });
         });
     </script>

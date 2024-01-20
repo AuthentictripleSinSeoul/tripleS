@@ -8,6 +8,7 @@ body, html {
     font-family: 'Montserrat', sans-serif;
 }
 
+
 /* Styles for desktop tabs */
 .desktop-tabs {
     position: fixed;
@@ -113,13 +114,13 @@ body, html {
 }
 
 /* Additional styles for page container and image */
+/* Additional styles for page container and image */
 #image-container {
     margin-top: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    overflow: hidden;
+    overflow: auto; /* 스크롤을 사용할 수 있게 함 */
 }
 
 #image-container img {
@@ -127,4 +128,51 @@ body, html {
     max-height: 100%;
     user-drag: none;
     user-select: none;
+    /* 빛나는 테두리 설정 */
+    box-shadow: 0 0 3px 1px rgba(255, 255, 255, 0.9), /* 적절한 값으로 조절 가능 */
+                0 0 30px 15px rgba(255, 255, 255, 0.5), /* 적절한 값으로 조절 가능 */
+                0 0 100px 40px rgba(255, 255, 255, 0.2); /* 적절한 값으로 조절 가능 */
+}
+
+
+/* Set image scale 60% on PC */
+@media only screen and (min-width: 769px) {
+    #image-container img {
+        max-width: 60%;
+    }
+}
+
+/* Set image scale 100% on Mobile */
+@media only screen and (max-width: 768px) {
+    #image-container img {
+        max-width: 100%;
+    }
+}
+
+/* 기본 스타일 */
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+#video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* 미디어 쿼리를 사용하여 PC에서만 적용되는 스타일 */
+@media only screen and (min-width: 769px) {
+    #video-background {
+        display: block; /* 화면이 769px 이상인 경우 영상을 숨깁니다. */
+    }
+
+    body {
+        background: url('1.mp4') no-repeat center center fixed;
+        background-size: cover;
+    }
 }

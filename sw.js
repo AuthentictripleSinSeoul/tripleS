@@ -11,6 +11,7 @@ const cacheAssets = [
     '/tripleS/girls-capitalism.png',
     '/tripleS/invincible.png',
     '/tripleS/just-do-it.png'
+    '/tripleS/1.mp4'
 ];
 
 self.addEventListener('install', event => {
