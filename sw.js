@@ -1,6 +1,6 @@
 // sw.js
 
-const cacheName = 'my-cache-v1';
+const cacheName = 'Cheering-Guide-Cache-v1';
 const cacheAssets = [
     '/',
     '/index.html',
