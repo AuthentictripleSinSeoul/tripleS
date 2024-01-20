@@ -112,11 +112,6 @@ body, html {
     background: rgba(255, 255, 255, 0.5);
 }
 
-/* Styles for active mobile tab */
-.mobile-tab.active-tab {
-    background: rgba(255, 255, 255, 0.5) !important;
-}
-
 /* Additional styles for page container and image */
 #image-container {
     margin-top: 50px;
