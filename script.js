@@ -5,13 +5,24 @@ document.addEventListener("DOMContentLoaded", function () {
     const tabNames = ["Generation", "Rising", "Cherry Talk", "Touch", "Girl's Capitalism", "Invincible", "Just Do It","TEST ONLY 1", "TEST ONLY 2"];
     const imageSources = ["generation.png", "rising.png", "cherry-talk.png", "touch.png", "girls-capitalism.png", "invincible.png", "just-do-it.png","1.png","2.png"];
 
-    // 이미지를 미리 로딩하여 브라우저에 캐시
+    // Image Cache
     const images = [];
     imageSources.forEach(function (src) {
         const img = new Image();
         img.src = src;
         images.push(img);
     });
+
+    // Video load or not
+    const shouldLoadVideo = !isMobile(); // 모바일이 아닐 경우에만 영상 로드
+
+    // Background Video
+    const backgroundVideo = document.getElementById('background-video');
+    if (shouldLoadVideo) {
+        backgroundVideo.innerHTML = '<source src="1.mp4" type="video/mp4">';
+    } else {
+        backgroundVideo.style.display = 'none'; // 모바일이면 영상 숨김
+    }
 
     // Add tabs dynamically
     for (let i = 0; i < tabNames.length; i++) {
