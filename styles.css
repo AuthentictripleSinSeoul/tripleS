@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
 @font-face {
     font-family: 'GmarketSansBold';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -180,8 +180,9 @@ body, html {
 
 #text-content {
     position: relative;
+    color: #707070;
     font-size: 18px;
-    background-color: #fff; 
+    background-color: #000000; 
     padding: 20px;
     border-radius: 10px; 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
@@ -198,8 +199,8 @@ body, html {
 
 #text-content .highlighted {
     color: rgb(0, 0, 0);
-    background-color: rgb(255, 186, 186);
-    padding: 3px 3.5px;
+    background-color: rgb(172, 172, 172);
+    padding: 2px 4.5px;
     border-radius: 10px;
     box-decoration-break: clone;
     position: relative;
