@@ -83,11 +83,12 @@ body, html {
 
 /* Styles for mobile menu */
 .mobile-menu {
+    color: white;
     display: none;
     position: fixed;
     top: 0;
     right: 0;
-    background-color: #fff;
+    background-color: #181818;
     padding: 20px;
     z-index: 1500;
 }
