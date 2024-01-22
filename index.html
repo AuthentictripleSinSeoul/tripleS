@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Service Worker Unregister -->
+    <script>
+    if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.ready.then(registration => {
+      registration.unregister();
+    });
+}
+    </script>
+
     <style>
         body {
             margin: 0;
