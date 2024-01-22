@@ -44,14 +44,15 @@ function loadTextFromFile(fileName) {
             loadImageButton.style.margin = '0 auto';
             loadImageButton.style.marginTop = '20px';
             loadImageButton.style.padding = '10px';
-            loadImageButton.style.backgroundColor = '#4CAF50';
-            loadImageButton.style.color = 'white';
+            loadImageButton.style.backgroundColor = 'rgb(214, 214, 214)';
+            loadImageButton.style.color = 'black';
             loadImageButton.style.border = 'none';
             loadImageButton.style.borderRadius = '5px';
             loadImageButton.style.textAlign = 'center';
             loadImageButton.style.textDecoration = 'none';
             loadImageButton.style.fontSize = '16px';
             loadImageButton.style.cursor = 'pointer';
+            loadImageButton.style.fontFamily = 'GmarketSansBold';
 
             // 클릭 이벤트리스너
             loadImageButton.addEventListener('click', function() {
