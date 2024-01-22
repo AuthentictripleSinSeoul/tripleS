@@ -18,7 +18,7 @@ function toggleImageContainer() {
 
 // 텍스트를 표시하는 섹션에 YouTube 동영상과 버튼 추가
 function loadTextFromFile(fileName) {
-    const filePath = `tripleS/${fileName}`;
+    const filePath = `${fileName}`;
     console.log('filePath:', filePath);
 
     // 동영상 ID
