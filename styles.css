@@ -1,0 +1,207 @@
+/* Font import */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+@font-face {
+    font-family: 'GmarketSansBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Styles for desktop tabs */
+.desktop-tabs {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+    background: linear-gradient(to right, #fffdf3, #c0c0c0);
+    z-index: 1000;
+    transition: background-color 0.3s;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.desktop-tabs::before {
+    content: '';
+    width: 200%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background: linear-gradient(to right, rgba(155, 227, 255, 0.2) 0%, rgba(165, 155, 255, 0.4) 25%, rgba(155, 227, 255, 0.2) 50%, rgba(165, 155, 255, 0.4) 75%, rgba(155, 227, 255, 0.2) 100%);
+    animation: moveGradient 10s linear infinite;
+    z-index: -1;
+}
+
+.desktop-tab {
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s, font-size 0.3s;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.desktop-tab:hover {
+    background: rgba(255, 255, 255, 0.5);
+    font-size: 110%;
+}
+
+@keyframes moveGradient {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+/* Styles for mobile menu icon */
+.mobile-icon {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: block;
+    z-index: 1000; 
+}
+
+.mobile-icon img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+/* Styles for mobile menu */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #fff;
+    padding: 20px;
+    z-index: 1500;
+}
+
+/* Styles to hide desktop tabs on mobile */
+@media only screen and (max-width: 600px) {
+    .desktop-tabs {
+        display: none;
+    }
+
+    .mobile-icon {
+        display: block;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+}
+
+/* Styles for mobile tab */
+.mobile-tab {
+    cursor: pointer;
+    padding: 10px;
+}
+
+.mobile-tab:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Additional styles for page container and image */
+#image-container {
+    margin-top: 50px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    overflow: auto; 
+}
+
+#image-container img {
+    max-width: 788px;
+    max-height: 100%;
+    user-drag: none;
+    user-select: none;
+    /* Roundness */
+    border-radius: 10px;
+
+}
+
+/* Set image scale 60% on PC */
+@media only screen and (min-width: 769px) {
+    #image-container img {
+        max-width: 60%;
+    }
+}
+
+/* Set image scale 100% on Mobile */
+@media only screen and (max-width: 768px) {
+    #image-container img {
+        max-width: 100%;
+    }
+}
+
+/* 기본 스타일 */
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+#video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 864;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* PC에서만 적용되는 스타일 */
+@media only screen and (min-width: 769px) {
+    #video-background {
+        display: block; 
+    }
+
+    body {
+        background: url('1.mp4') no-repeat center center fixed;
+        background-size: cover;
+    }
+}
+
+#text-content {
+    position: relative;
+    font-size: 18px;
+    background-color: #fff; 
+    padding: 20px;
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+    margin-top: 100px; 
+    max-width: 788px; 
+    margin-left: auto; 
+    margin-right: auto; 
+    text-align: center;
+    font-family: 'GmarketSansBold';
+    letter-spacing: -1px;
+    z-index: 2;
+}
+
+
+#text-content .highlighted {
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 186, 186);
+    padding: 3px 3.5px;
+    border-radius: 10px;
+    box-decoration-break: clone;
+    position: relative;
+    z-index: 0;
+}
