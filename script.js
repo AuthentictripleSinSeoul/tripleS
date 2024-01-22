@@ -1,4 +1,4 @@
-var myParameter = "Generation.txt";
+var myParameter = "generation.txt";
 const textContent = document.getElementById('text-content');
 const textSources = ["generation.txt", "rising.txt", "cherry-talk.txt", "touch.txt", "girls-capitalism.txt", "invincible.txt", "just-do-it.txt", "1.txt", "2.txt"];
 const videoidlist = [`AXzeTrC2Vlw`, "R_l-UNaXztc"];
