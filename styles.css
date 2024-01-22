@@ -180,7 +180,7 @@ body, html {
 
 #text-content {
     position: relative;
-    color: #707070;
+    color: #ffffff;
     font-size: 18px;
     background-color: #000000; 
     padding: 20px;
@@ -199,7 +199,7 @@ body, html {
 
 #text-content .highlighted {
     color: rgb(0, 0, 0);
-    background-color: rgb(172, 172, 172);
+    background-color: rgb(214, 214, 214);
     padding: 2px 4.5px;
     border-radius: 10px;
     box-decoration-break: clone;
