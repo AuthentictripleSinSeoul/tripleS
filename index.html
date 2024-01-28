@@ -181,9 +181,11 @@
             const songs = ["generation", "rolex", "rising", "colorful", "new-look", "cherry-talk", "touch", "girls-capitalism", "invincible", "just-do-it"]
             console.log(params)
             if (songs.includes(params)) {
-                loadTextFromFile(`txts/${params}.txt`);
+                //loadTextFromFile(`txts/${params}.txt`);
+                changeTab(params)
             } else {
-                loadTextFromFile("txts/generation.txt");
+                //loadTextFromFile("txts/generation.txt");
+                changeTab("generation")
             }            
         });
     </script>

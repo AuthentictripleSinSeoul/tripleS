@@ -1,8 +1,50 @@
 var myParameter = "";
 const textContent = document.getElementById('text-content');
-const textSources = ["generation.txt", "rising.txt", "colorful.txt", "cherry-talk.txt", "touch.txt", "girls-capitalism.txt", "invincible.txt", "just-do-it.txt", "1.txt", "2.txt"];
-const videoidlist = [`AXzeTrC2Vlw`, "R_l-UNaXztc", "0fWM8sVy6qM"];
-var videoid = videoidlist[0];
+
+const songData = {
+    generation: {
+        name: "Generation",
+        videosource: "AXzeTrC2Vlw"
+    },
+    rolex: {
+        name: "Rolex",
+        videosource: ""
+    },
+    rising: {
+        name: "Rising",
+        videosource: "R_l-UNaXztc"
+    },
+    colorful: {
+        name: "Colorful",
+        videosource: "0fWM8sVy6qM"
+    },
+    new_look: {
+        name: "New Look",
+        videosource: ""
+    },
+    cherry_talk: {
+        name: "Cherry Talk",
+        videosource: ""
+    },
+    touch: {
+        name: "Touch",
+        videosource: ""
+    },
+    girls_capitalism: {
+        name: "Girl's Capitalism",
+        videosource: ""
+    },
+    invincible: {
+        name: "Invincible",
+        videosource: ""
+    },
+    just_do_it: {
+        name: "Just Do It",
+        videosource: ""
+    }
+}
+
+const songList = Object.keys(songData);
 
 // 이미지를 토글하는 함수
 function toggleImageContainer() {
@@ -17,15 +59,12 @@ function toggleImageContainer() {
 }
 
 // 텍스트를 표시하는 섹션에 YouTube 동영상과 버튼 추가
-function loadTextFromFile(fileName) {
+function loadTextFromFile(fileName, videosource) {
     const filePath = `${fileName}`;
     console.log('filePath:', filePath);
 
-    // 동영상 ID
-    const youtubeVideoID = videoid; 
-
     // 유튜브 iframe
-    const youtubeEmbedCode = `<iframe width="560" height="315" src="https://www.youtube.com/embed/${youtubeVideoID}" frameborder="0" allowfullscreen style="border-radius: 15px; margin-top: 30px; margin-bottom: 30px;"></iframe>`;
+    const youtubeEmbedCode = `<iframe width="560" height="315" src="https://www.youtube.com/embed/${videosource}" frameborder="0" allowfullscreen style="border-radius: 15px; margin-top: 30px; margin-bottom: 30px;"></iframe>`;
 
     // 텍스트 로드 및 동영상 및 버튼 추가
     $.ajax({
@@ -68,14 +107,46 @@ function loadTextFromFile(fileName) {
     });
 }
 
+// Function to change the displayed image
+function showImage(imageSrc) {
+    // Clear existing images
+    imageContainer.innerHTML = '';
+
+    // Create an image element and set the source
+    const image = document.createElement('img');
+    image.src = "https://triplespics.s3.ap-northeast-2.amazonaws.com/" + imageSrc;
+
+    // Append image to the container
+    imageContainer.appendChild(image);
+}
+
+// Function to change the active tab
+function changeTab(song) {
+    // Remove active class from all tabs
+    document.querySelectorAll('.desktop-tab').forEach(function (tab) {
+        tab.classList.remove('active-tab');
+    });
+    index = songList.indexOf(song)
+    // Add active class to the clicked tab
+    tabsContainer.children[index].classList.add('active-tab');
+
+    // Change the displayed image
+    showImage(songData.name + ".png");
+    myParameter = "txts/" + song + ".txt";
+    const videoid = songData.videosource;
+    imageContainer.style.display = 'none';
+    console.log(myParameter);
+
+    // Load and display text from a file
+    loadTextFromFile(myParameter, videoid);
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     const tabsContainer = document.getElementById('tabs-container');
     const imageContainer = document.getElementById('image-container');
     const mobileMenuContainer = document.getElementById('mobile-menu-container');
 
     const backgroundVideo = document.getElementById('background-video');
-    const tabNames = ["Generation", "Rising", "Colorful", "Cherry Talk", "Touch", "Girl's Capitalism", "Invincible", "Just Do It", "TEST ONLY 1", "TEST ONLY 2"];
-    const imageSources = ["generation.png", "rising.png", "colorful.png", "cherry-talk.png", "touch.png", "girls-capitalism.png", "invincible.png", "just-do-it.png", "1.png", "2.png"];
 
     // Video load or not
     const shouldLoadVideo = !isMobile(); // 모바일이 아닐 경우에만 영상 로드
@@ -88,53 +159,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Add tabs dynamically
-    for (let i = 0; i < tabNames.length; i++) {
+    for (let i = 0; i < songList.length; i++) {
         const tab = document.createElement('div');
         tab.classList.add('desktop-tab');
-        tab.innerHTML = `<span class="tab-text">${tabNames[i]}</span>`;
+        tab.innerHTML = `<span class="tab-text">${songData.songList[i].name}</span>`;
         tabsContainer.appendChild(tab);
 
         // Event listener for tab click
         tab.addEventListener('click', function () {
-            changeTab(i);
+            changeTab(songList[i]);
         });
-    }
-
-    // Initial image display
-    showImage(imageSources[0]);
-
-    // Function to change the displayed image
-    function showImage(imageSrc) {
-        // Clear existing images
-        imageContainer.innerHTML = '';
-
-        // Create an image element and set the source
-        const image = document.createElement('img');
-        image.src = "https://triplespics.s3.ap-northeast-2.amazonaws.com/" + imageSrc;
-
-        // Append image to the container
-        imageContainer.appendChild(image);
-    }
-
-    // Function to change the active tab
-    function changeTab(index) {
-        // Remove active class from all tabs
-        document.querySelectorAll('.desktop-tab').forEach(function (tab) {
-            tab.classList.remove('active-tab');
-        });
-
-        // Add active class to the clicked tab
-        tabsContainer.children[index].classList.add('active-tab');
-
-        // Change the displayed image
-        showImage(imageSources[index]);
-        myParameter = "txts/" + textSources[index];
-        videoid = videoidlist[index];
-        imageContainer.style.display = 'none';
-        console.log(myParameter);
-
-        // Load and display text from a file
-        loadTextFromFile(myParameter);
     }
 
     // Toggle mobile menu
@@ -149,14 +183,14 @@ document.addEventListener("DOMContentLoaded", function () {
         menuContainer.classList.add('mobile-menu');
 
         // Create tabs for mobile menu
-        for (let i = 0; i < tabNames.length; i++) {
+        for (let i = 0; i < songList.length; i++) {
             const mobileTab = document.createElement('div');
             mobileTab.classList.add('mobile-tab');
-            mobileTab.innerHTML = `<span class="tab-text">${tabNames[i]}</span>`;
+            mobileTab.innerHTML = `<span class="tab-text">${songData.songList[i].name}</span>`;
 
             // Event listener for mobile tab click
             mobileTab.addEventListener('click', function () {
-                changeTab(i);
+                changeTab(songList[i]);
                 closeMobileMenu(); // Close the mobile menu after clicking a tab
             });
 
