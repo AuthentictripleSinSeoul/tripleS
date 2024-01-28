@@ -1,4 +1,4 @@
-var myParameter = "generation.txt";
+var myParameter = "txts/generation.txt";
 const textContent = document.getElementById('text-content');
 const textSources = ["generation.txt", "rising.txt", "cherry-talk.txt", "touch.txt", "girls-capitalism.txt", "invincible.txt", "just-do-it.txt", "1.txt", "2.txt"];
 const videoidlist = [`AXzeTrC2Vlw`, "R_l-UNaXztc"];
@@ -32,9 +32,10 @@ function loadTextFromFile(fileName) {
         url: filePath,
         dataType: 'text',
         success: function (data) {
-            const formattedText = data.replace(/\[(.*?)\]/g, '<span class="highlighted">$1</span>');
-            const textWithLineBreaks = formattedText.replace(/\n/g, '<br>'); 
-            textContent.innerHTML = `<div style="border-radius: 15px; overflow: hidden; margin-bottom: 10px;">${youtubeEmbedCode}</div><p style="margin-top: 10px;">${textWithLineBreaks}</p>`;
+            let formattedText = data.replace(/\n/g, '<br>'); 
+            formattedText = formattedText.replace(/\[(.*?)\]/g, '<span class="highlighted">$1</span>');
+            formattedText = formattedText.replace(/\{(.*?)\}/g, '<span class="del">$1</span>');
+            textContent.innerHTML = `<div style="border-radius: 15px; overflow: hidden; margin-bottom: 10px;">${youtubeEmbedCode}</div><p style="margin-top: 10px;">${formattedText}</p>`;
             
             // 버튼 추가
             const loadImageButton = document.createElement('button');
@@ -81,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Background Video
     if (shouldLoadVideo) {
-        backgroundVideo.innerHTML = '<source src="1.mp4" type="video/mp4">';
+        backgroundVideo.innerHTML = '<source src="https://triplespics.s3.ap-northeast-2.amazonaws.com/1.mp4" type="video/mp4">';
     } else {
         backgroundVideo.style.display = 'none'; // 모바일이면 영상 숨김
     }
@@ -109,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Create an image element and set the source
         const image = document.createElement('img');
-        image.src = imageSrc;
+        image.src = "https://triplespics.s3.ap-northeast-2.amazonaws.com/" + imageSrc;
 
         // Append image to the container
         imageContainer.appendChild(image);
@@ -127,13 +128,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Change the displayed image
         showImage(imageSources[index]);
-        myParameter = textSources[index];
+        myParameter = "txts/" + textSources[index];
         videoid = videoidlist[index];
         imageContainer.style.display = 'none';
-        console.log(textSources[index]);
+        console.log(myParameter);
 
         // Load and display text from a file
-        loadTextFromFile(textSources[index]);
+        loadTextFromFile(myParameter);
     }
 
     // Toggle mobile menu

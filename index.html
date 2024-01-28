@@ -67,7 +67,7 @@
 <body bgcolor='black'>
     <!-- Loop video -->
     <video id="background-video" autoplay muted loop>
-        <source src="1.mp4" type="video/mp4">
+        <source src="https://triplespics.s3.ap-northeast-2.amazonaws.com/1.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 
@@ -175,8 +175,11 @@
 
 
             // Initial text load (replace 'generation' with the desired default tab)
-
-            loadTextFromFile(myParameter);
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const params = urlParams.get('song')
+            console.log(params)
+            loadTextFromFile("txts/generation.txt");
             
         });
     </script>
