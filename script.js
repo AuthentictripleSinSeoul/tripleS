@@ -1,7 +1,7 @@
 var myParameter = "txts/generation.txt";
 const textContent = document.getElementById('text-content');
-const textSources = ["generation.txt", "rising.txt", "cherry-talk.txt", "touch.txt", "girls-capitalism.txt", "invincible.txt", "just-do-it.txt", "1.txt", "2.txt"];
-const videoidlist = [`AXzeTrC2Vlw`, "R_l-UNaXztc"];
+const textSources = ["generation.txt", "rising.txt", "colorful.txt", "cherry-talk.txt", "touch.txt", "girls-capitalism.txt", "invincible.txt", "just-do-it.txt", "1.txt", "2.txt"];
+const videoidlist = [`AXzeTrC2Vlw`, "R_l-UNaXztc", "0fWM8sVy6qM"];
 var videoid = videoidlist[0];
 
 // 이미지를 토글하는 함수
@@ -74,8 +74,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const mobileMenuContainer = document.getElementById('mobile-menu-container');
 
     const backgroundVideo = document.getElementById('background-video');
-    const tabNames = ["Generation", "Rising", "Cherry Talk", "Touch", "Girl's Capitalism", "Invincible", "Just Do It", "TEST ONLY 1", "TEST ONLY 2"];
-    const imageSources = ["generation.png", "rising.png", "cherry-talk.png", "touch.png", "girls-capitalism.png", "invincible.png", "just-do-it.png", "1.png", "2.png"];
+    const tabNames = ["Generation", "Rising", "Colorful", "Cherry Talk", "Touch", "Girl's Capitalism", "Invincible", "Just Do It", "TEST ONLY 1", "TEST ONLY 2"];
+    const imageSources = ["generation.png", "rising.png", "colorful.png", "cherry-talk.png", "touch.png", "girls-capitalism.png", "invincible.png", "just-do-it.png", "1.png", "2.png"];
 
     // Video load or not
     const shouldLoadVideo = !isMobile(); // 모바일이 아닐 경우에만 영상 로드
