@@ -178,9 +178,13 @@
             const queryString = window.location.search;
             const urlParams = new URLSearchParams(queryString);
             const params = urlParams.get('song')
+            const songs = ["generation", "rolex", "rising", "colorful", "new-look", "cherry-talk", "touch", "girls-capitalism", "invincible", "just-do-it"]
             console.log(params)
-            loadTextFromFile("txts/generation.txt");
-            
+            if (songs.includes(params)) {
+                loadTextFromFile(`txts/${params}.txt`);
+            } else {
+                loadTextFromFile("txts/generation.txt");
+            }            
         });
     </script>
 </body>
