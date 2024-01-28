@@ -107,40 +107,6 @@ function loadTextFromFile(fileName, videosource) {
     });
 }
 
-// Function to change the displayed image
-function showImage(imageSrc) {
-    // Clear existing images
-    imageContainer.innerHTML = '';
-
-    // Create an image element and set the source
-    const image = document.createElement('img');
-    image.src = "https://triplespics.s3.ap-northeast-2.amazonaws.com/" + imageSrc;
-
-    // Append image to the container
-    imageContainer.appendChild(image);
-}
-
-// Function to change the active tab
-function changeTab(song) {
-    // Remove active class from all tabs
-    document.querySelectorAll('.desktop-tab').forEach(function (tab) {
-        tab.classList.remove('active-tab');
-    });
-    index = songList.indexOf(song)
-    // Add active class to the clicked tab
-    tabsContainer.children[index].classList.add('active-tab');
-
-    // Change the displayed image
-    showImage(songData.name + ".png");
-    myParameter = "txts/" + song + ".txt";
-    const videoid = songData.videosource;
-    imageContainer.style.display = 'none';
-    console.log(myParameter);
-
-    // Load and display text from a file
-    loadTextFromFile(myParameter, videoid);
-}
-
 document.addEventListener("DOMContentLoaded", function () {
     const tabsContainer = document.getElementById('tabs-container');
     const imageContainer = document.getElementById('image-container');
@@ -162,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
     for (let i = 0; i < songList.length; i++) {
         const tab = document.createElement('div');
         tab.classList.add('desktop-tab');
-        tab.innerHTML = `<span class="tab-text">${songData.songList[i].name}</span>`;
+        tab.innerHTML = `<span class="tab-text">${songData[songList[i]].name}</span>`;
         tabsContainer.appendChild(tab);
 
         // Event listener for tab click
@@ -170,6 +136,49 @@ document.addEventListener("DOMContentLoaded", function () {
             changeTab(songList[i]);
         });
     }
+
+    // Function to change the displayed image
+    function showImage(imageSrc) {
+        // Clear existing images
+        imageContainer.innerHTML = '';
+
+        // Create an image element and set the source
+        const image = document.createElement('img');
+        image.src = "https://triplespics.s3.ap-northeast-2.amazonaws.com/" + imageSrc;
+
+        // Append image to the container
+        imageContainer.appendChild(image);
+    }
+
+    // Function to change the active tab
+    function changeTab(song) {
+        // Remove active class from all tabs
+        document.querySelectorAll('.desktop-tab').forEach(function (tab) {
+            tab.classList.remove('active-tab');
+        });
+        index = songList.indexOf(song)
+        // Add active class to the clicked tab
+        tabsContainer.children[index].classList.add('active-tab');
+
+        // Change the displayed image
+        showImage(songData.name + ".png");
+        myParameter = "txts/" + song + ".txt";
+        const videoid = songData.videosource;
+        imageContainer.style.display = 'none';
+        console.log(myParameter);
+
+        // Load and display text from a file
+        loadTextFromFile(myParameter, videoid);
+    }
+
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const params = urlParams.get('song')
+    if (songList.includes(params)) {
+        changeTab(params)
+    } else {
+        changeTab("generation")
+    }  
 
     // Toggle mobile menu
     window.toggleMobileMenu = function () {
@@ -186,7 +195,7 @@ document.addEventListener("DOMContentLoaded", function () {
         for (let i = 0; i < songList.length; i++) {
             const mobileTab = document.createElement('div');
             mobileTab.classList.add('mobile-tab');
-            mobileTab.innerHTML = `<span class="tab-text">${songData.songList[i].name}</span>`;
+            mobileTab.innerHTML = `<span class="tab-text">${songData[songList[i]].name}</span>`;
 
             // Event listener for mobile tab click
             mobileTab.addEventListener('click', function () {

@@ -174,19 +174,7 @@
 
 
 
-            // Initial text load (replace 'generation' with the desired default tab)
-            const queryString = window.location.search;
-            const urlParams = new URLSearchParams(queryString);
-            const params = urlParams.get('song')
-            const songs = ["generation", "rolex", "rising", "colorful", "new-look", "cherry-talk", "touch", "girls-capitalism", "invincible", "just-do-it"]
-            console.log(params)
-            if (songs.includes(params)) {
-                //loadTextFromFile(`txts/${params}.txt`);
-                changeTab(params)
-            } else {
-                //loadTextFromFile("txts/generation.txt");
-                changeTab("generation")
-            }            
+            // Initial text load (replace 'generation' with the desired default tab)          
         });
     </script>
 </body>
