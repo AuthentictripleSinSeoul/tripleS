@@ -41,7 +41,7 @@ const songData = {
     },
     just_do_it: {
         name: "Just Do It",
-        videosource: "q31DsU1hXPo"
+        videosource: "s3IfM-u5hVc?"
     }
 }
 
