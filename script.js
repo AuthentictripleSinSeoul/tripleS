@@ -1,5 +1,6 @@
 var myParameter = "";
 const textContent = document.getElementById('text-content');
+const videoContainer = document.getElementById('video-container');
 
 const songData = {
     generation: {
@@ -78,7 +79,8 @@ function loadTextFromFile(fileName, videosource) {
             let formattedText = data.replace(/\n/g, '<br>'); 
             formattedText = formattedText.replace(/\[(.*?)\]/g, '<span class="highlighted">$1</span>');
             formattedText = formattedText.replace(/\{(.*?)\}/g, '<span class="del">$1</span>');
-            textContent.innerHTML = `<div style="border-radius: 15px; overflow: hidden; margin-bottom: 10px;">${youtubeEmbedCode}</div><p style="margin-top: 10px;">${formattedText}</p>`;
+            videoContainer.innerHTML = youtubeEmbedCode
+            textContent.innerHTML = `<p style="margin-top: 10px;">${formattedText}</p>`;
             
             // 버튼 추가
             const loadImageButton = document.createElement('button');
