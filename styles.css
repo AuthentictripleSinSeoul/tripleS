@@ -95,7 +95,7 @@ body, html {
 }
 
 /* Styles to hide desktop tabs on mobile */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 900px) {
     .desktop-tabs {
         display: none;
     }
