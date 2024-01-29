@@ -181,10 +181,6 @@ body, html {
 }
 
 @media only screen and (max-width: 900px) {
-    .text-container {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
     .video-container {
         position: relative;
         padding-bottom: 56.25%; /* 16:9 */
