@@ -46,11 +46,6 @@ const songData = {
 
 const songList = Object.keys(songData);
 
-// Function to check if the device is mobile view
-function isMobile() {
-    return window.innerWidth <= 900; 
-}
-
 // 이미지를 토글하는 함수
 function toggleImageContainer() {
     const imageContainer = document.getElementById('image-container');
@@ -69,7 +64,7 @@ function loadTextFromFile(fileName, videosource) {
     console.log('filePath:', filePath);
 
     let youtubeEmbedCode = ''
-    if (isMobile()) {
+    if (window.innerWidth <= 900) {
         youtubeEmbedCode = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${videosource}" frameborder="0" allowfullscreen style="border-radius: 15px; margin-top: 30px; margin-bottom: 30px;"></iframe>`;
     } else {
         youtubeEmbedCode = `<iframe width="560" height="315" src="https://www.youtube.com/embed/${videosource}" frameborder="0" allowfullscreen style="border-radius: 15px; margin-top: 30px; margin-bottom: 30px;"></iframe>`;
@@ -229,6 +224,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // Check if the device is mobile and create the mobile menu
     if (isMobile()) {
         createMobileMenu();
+    }
+
+    // Function to check if the device is mobile view
+    function isMobile() {
+        return window.innerWidth <= 900; 
     }
 
     // Disable video scroll for mobile
