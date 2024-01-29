@@ -197,7 +197,8 @@ body, html {
 
 @media only screen and (min-width: 900px) {
     .video-container {
-        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
     }
     .video-container iframe {
         width: 560px;
@@ -222,6 +223,7 @@ body, html {
     position: relative;
     color: #ffffff;
     font-size: 18px;
+    margin-top: 50px;
     background-color: #000000; 
     border-radius: 10px; 
     padding-bottom: 20px;
