@@ -27,7 +27,7 @@ const songData = {
         videosource: "mNgB5dxVfGc"
     },
     touch: {
-        name: "Touch",
+        name: "Touch+",
         videosource: "V2cVtl9bJyE"
     },
     girls_capitalism: {
@@ -175,6 +175,7 @@ document.addEventListener("DOMContentLoaded", function () {
         loadTextFromFile(myParameter, videoid);
         const urlParams = new URLSearchParams(window.location.search);
         urlParams.set('song', song);
+        console.log(urlParams)
         history.pushState({ }, null, urlParams)
     }
 
