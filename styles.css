@@ -139,14 +139,14 @@ body, html {
 }
 
 /* Set image scale 60% on PC */
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 900px) {
     #image-container img {
         max-width: 60%;
     }
 }
 
 /* Set image scale 100% on Mobile */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 900px) {
     #image-container img {
         max-width: 100%;
     }
@@ -169,13 +169,13 @@ body, html {
 }
 
 /* PC에서만 적용되는 스타일 */
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 900px) {
     #video-background {
         display: block; 
     }
 
     body {
-        background: url('https://triplespics.s3.ap-northeast-2.amazonaws.com/1.mp4') no-repeat center center fixed;
+        background: url('https://triplespics.s3.ap-northeast-2.amazonaws.com/1.mp4') no-repeat center center fixed #000000;
         background-size: cover;
     }
 }
