@@ -63,8 +63,12 @@ function loadTextFromFile(fileName, videosource) {
     const filePath = `${fileName}`;
     console.log('filePath:', filePath);
 
-    // 유튜브 iframe
-    const youtubeEmbedCode = `<iframe width="560" height="315" src="https://www.youtube.com/embed/${videosource}" frameborder="0" allowfullscreen style="border-radius: 15px; margin-top: 30px; margin-bottom: 30px;"></iframe>`;
+    let youtubeEmbedCode = ''
+    if (isMobile()) {
+        youtubeEmbedCode = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${videosource}" frameborder="0" allowfullscreen style="border-radius: 15px; margin-top: 30px; margin-bottom: 30px;"></iframe>`;
+    } else {
+        youtubeEmbedCode = `<iframe width="560" height="315" src="https://www.youtube.com/embed/${videosource}" frameborder="0" allowfullscreen style="border-radius: 15px; margin-top: 30px; margin-bottom: 30px;"></iframe>`;
+    }
 
     // 텍스트 로드 및 동영상 및 버튼 추가
     $.ajax({
@@ -224,7 +228,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Function to check if the device is mobile view
     function isMobile() {
-        return window.innerWidth <= 768; 
+        return window.innerWidth <= 900; 
     }
 
     // Disable video scroll for mobile
