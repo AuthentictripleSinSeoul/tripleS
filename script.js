@@ -175,8 +175,8 @@ document.addEventListener("DOMContentLoaded", function () {
         loadTextFromFile(myParameter, videoid);
         const urlParams = new URLSearchParams(window.location.search);
         urlParams.set('song', song);
-        console.log(urlParams)
-        history.pushState({ }, null, urlParams)
+        console.log(urlParams.toString())
+        history.pushState({ }, null, urlParams.toString())
     }
 
     const queryString = window.location.search;
