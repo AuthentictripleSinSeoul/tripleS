@@ -32,7 +32,7 @@ const songData = {
     },
     girls_capitalism: {
         name: "Girl's Capitalism",
-        videosource: ""
+        videosource: "RkQC963gtnA"
     },
     invincible: {
         name: "Invincible",
