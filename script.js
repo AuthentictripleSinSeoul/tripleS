@@ -173,7 +173,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Load and display text from a file
         loadTextFromFile(myParameter, videoid);
-        history.pushState({}, null, `/?song=${song}`)
+        const urlParams = new URLSearchParams(window.location.search);
+        urlParams.set('song', song);
+        history.pushState({ }, null, urlParams)
     }
 
     const queryString = window.location.search;
