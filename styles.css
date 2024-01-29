@@ -195,6 +195,16 @@ body, html {
     }
 }
 
+@media only screen and (min-width: 900px) {
+    .video-container iframe {
+        width: 560;
+        height: 315;
+        border-radius: 15px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+}
+
 #text-content {
     position: relative;
     color: #ffffff;
