@@ -46,6 +46,11 @@ const songData = {
 
 const songList = Object.keys(songData);
 
+// Function to check if the device is mobile view
+function isMobile() {
+    return window.innerWidth <= 900; 
+}
+
 // 이미지를 토글하는 함수
 function toggleImageContainer() {
     const imageContainer = document.getElementById('image-container');
@@ -224,11 +229,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Check if the device is mobile and create the mobile menu
     if (isMobile()) {
         createMobileMenu();
-    }
-
-    // Function to check if the device is mobile view
-    function isMobile() {
-        return window.innerWidth <= 900; 
     }
 
     // Disable video scroll for mobile
