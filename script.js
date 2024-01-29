@@ -24,7 +24,7 @@ const songData = {
     },
     cherry_talk: {
         name: "Cherry Talk",
-        videosource: ""
+        videosource: "mNgB5dxVfGc"
     },
     touch: {
         name: "Touch",
