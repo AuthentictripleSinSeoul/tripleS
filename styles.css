@@ -197,6 +197,7 @@ body, html {
 
 @media only screen and (min-width: 900px) {
     .video-container {
+        width: 560px;
         margin-left: auto;
         margin-right: auto;
     }
@@ -214,7 +215,6 @@ body, html {
 #text-container {
     margin-top: 100px; 
     max-width: 788px; 
-    padding: 20px;
     margin-left: auto; 
     margin-right: auto; 
 }
@@ -223,10 +223,10 @@ body, html {
     position: relative;
     color: #ffffff;
     font-size: 18px;
-    margin-top: 50px;
     background-color: #000000; 
     border-radius: 10px; 
     padding-bottom: 20px;
+    padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
     margin-left: auto; 
     margin-right: auto; 
