@@ -200,8 +200,8 @@ body, html {
         width: 100%;
     }
     .video-container iframe {
-        width: 560;
-        height: 315;
+        width: 560px;
+        height: 315px;
         border-radius: 15px;
         margin-top: 30px;
         margin-bottom: 30px;
