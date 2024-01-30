@@ -66,7 +66,7 @@ function loadTextFromFile(fileName, videosource) {
 
     let youtubeEmbedCode = ''
     if (window.innerWidth <= 900) {
-        youtubeEmbedCode = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${videosource}" frameborder="0" allowfullscreen style="border-radius: 15px; margin-top: 30px; margin-bottom: 30px;"></iframe>`;
+        youtubeEmbedCode = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${videosource}" frameborder="0" allowfullscreen style="border-radius: 15px;"></iframe>`;
     } else {
         youtubeEmbedCode = `<iframe width="560" height="315" src="https://www.youtube.com/embed/${videosource}" frameborder="0" allowfullscreen style="border-radius: 15px; margin-top: 30px; margin-bottom: 30px;"></iframe>`;
     }
