@@ -21,7 +21,7 @@ const songData = {
     },
     new_look: {
         name: "New Look",
-        videosource: ""
+        videosource: "u11Lblh4whI"
     },
     cherry_talk: {
         name: "Cherry Talk",
