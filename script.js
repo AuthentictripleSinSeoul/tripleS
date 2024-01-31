@@ -167,7 +167,7 @@ document.addEventListener("DOMContentLoaded", function () {
         tabsContainer.children[index].classList.add('active-tab');
 
         // Change the displayed image
-        showImage(song + ".png");
+        showImage(song + ".jpg");
         myParameter = "txts/" + song + ".txt";
         const videoid = songData[song].videosource;
         imageContainer.style.display = 'none';
