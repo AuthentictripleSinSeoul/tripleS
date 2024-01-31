@@ -79,6 +79,7 @@ function loadTextFromFile(fileName, videosource) {
             let formattedText = data.replace(/\n/g, '<br>'); 
             formattedText = formattedText.replace(/\[(.*?)\]/g, '<span class="highlighted">$1</span>');
             formattedText = formattedText.replace(/\{(.*?)\}/g, '<span class="del">$1</span>');
+            formattedText = formattedText.replace(/\^(.*?)\^/g, '<span class="version">$1</span>');
             videoContainer.innerHTML = youtubeEmbedCode
             textContent.innerHTML = `<p style="margin-top: 10px;">${formattedText}</p>`;
             
