@@ -1,3 +1,4 @@
+[(와아아앙!)]
 [(윤서연 이지우 김채연 김수민)]
 [(tripleS +(KR)ystal Eyes)]
 
@@ -52,8 +53,8 @@ Slide To You
 또 쏟아지는 Alarm
 [Only You]
 
-꽉 차버린 6.1 (Inch)
-보다 커진 Heart
+꽉 차버린 [6.1] (Inch)
+보다 커진 [Heart]
 [어떡해 잠깐만]
 You, You
 Tap, Tap
@@ -110,6 +111,5 @@ Wanna Nana Know Ya
 [Cherry Cherry Talk]
 What?
 
-[Boom Cherry Talk]
-[Cherry Cherry Talk]
-Tell Me Your Answer Now
+[Tell Me Your Answer Now]
+[(와아아아아아앙!!)]
