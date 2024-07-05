@@ -192,7 +192,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (songList.includes(params)) {
         changeTab(params)
     } else {
-        changeTab("generation")
+        changeTab("girls_never_die")
     }  
 
     // Toggle mobile menu
