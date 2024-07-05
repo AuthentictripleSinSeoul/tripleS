@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Clear existing images
         imageContainer.innerHTML = '';
 
-        // Create an image element and set the source
+        // Create anx image element and set the source
         const image = document.createElement('img');
         image.src = "https://triplespics.s3.ap-northeast-2.amazonaws.com/" + imageSrc;
 
@@ -241,6 +241,12 @@ document.addEventListener("DOMContentLoaded", function () {
     function isMobile() {
         return window.innerWidth <= 900; 
     }
+
+    window.addEventListener('resize', function() {
+        if (isMobile()) {
+            createMobileMenu();
+        }
+    });
 
     // Disable video scroll for mobile
     if (isMobile()) {
