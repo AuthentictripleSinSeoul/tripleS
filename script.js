@@ -42,6 +42,10 @@ const songData = {
     just_do_it: {
         name: "Just Do It",
         videosource: "s3IfM-u5hVc?"
+    },
+    girls_never_die: {
+        name: "Girls Never Die",
+        videosource: "9nnMo11jPtg"
     }
 }
 
