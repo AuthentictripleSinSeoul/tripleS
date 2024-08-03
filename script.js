@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Background Video
     if (shouldLoadVideo) {
-        backgroundVideo.innerHTML = '<source src="https://triplespics.s3.ap-northeast-2.amazonaws.com/1.mp4" type="video/mp4">';
+        backgroundVideo.innerHTML = '<source src="images/1.mp4" type="video/mp4">';
     } else {
         backgroundVideo.style.display = 'none'; // 모바일이면 영상 숨김
     }
@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Create anx image element and set the source
         const image = document.createElement('img');
-        image.src = "https://triplespics.s3.ap-northeast-2.amazonaws.com/" + imageSrc;
+        image.src = "images/" + imageSrc;
 
         // Append image to the container
         imageContainer.appendChild(image);

@@ -175,7 +175,7 @@ body, html {
     }
 
     body {
-        background: url('https://triplespics.s3.ap-northeast-2.amazonaws.com/1.mp4') no-repeat center center fixed #000000;
+        background: url('images/1.mp4') no-repeat center center fixed #000000;
         background-size: cover;
     }
 }
