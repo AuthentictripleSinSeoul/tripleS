@@ -74,6 +74,7 @@ body, html {
     right: 10px;
     display: block;
     z-index: 1000; 
+    cursor: pointer;
 }
 
 .mobile-icon img {
@@ -85,7 +86,7 @@ body, html {
 /* Styles for mobile menu */
 .mobile-menu {
     color: white;
-    display: none;
+    /* display: none; */
     position: fixed;
     top: 0;
     right: 0;
@@ -96,9 +97,9 @@ body, html {
 
 /* Styles to hide desktop tabs on mobile */
 @media only screen and (max-width: 900px) {
-    .desktop-tabs {
+    /* .desktop-tabs {
         display: none;
-    }
+    } */
 
     .mobile-icon {
         display: block;

@@ -32,17 +32,17 @@
         }
 
         @media only screen and (min-width: 900px) {
-            .mobile-icon {
+            /* .mobile-icon {
                 display: none;
-            }
+            } */
 
-            .desktop-tabs {
+            /* .desktop-tabs {
                 display: flex !important; 
-            }
+            } */
 
-            .mobile-menu {
+            /* .mobile-menu {
                 display: none !important; 
-            }
+            } */
         }
     </style>
     <meta charset="UTF-8">
@@ -82,7 +82,7 @@
     </div>
 
     <!-- Tab and Image Container -->
-    <div id="tabs-container" class="desktop-tabs"></div>
+    <!-- <div id="tabs-container" class="desktop-tabs"></div> -->
 
     <!-- 영상 & 응원법 & 버튼섹션 -->
     <div id="text-container" class="text-container">
@@ -111,14 +111,14 @@
             const textContent = document.getElementById('text-content');
 
             // Function to check if the device is mobile view
-            function isMobile() {
-                return window.innerWidth <= 900;
-            }
+            // function isMobile() {
+            //     return window.innerWidth <= 900;
+            // }
 
-            // Function to show tabs
-            function showTabs() {
-                tabsContainer.style.display = 'flex';
-            }
+            // // Function to show tabs
+            // function showTabs() {
+            //     tabsContainer.style.display = 'flex';
+            // }
 
             // Function to hide tabs
             function hideTabs() {
@@ -130,11 +130,11 @@
 
             // Function to toggle mobile menu
             function toggleMobileMenu() {
-                if (isMobile()) {
-                    $(mobileMenuContainer).toggle();
-                } else {
-                    showTabs();
-                }
+                $(mobileMenuContainer).toggle();
+                // if (isMobile()) {
+                // } else {
+                //     showTabs();
+                // }
             }
 
             // Mobile icon click event listener
@@ -148,9 +148,9 @@
             // Image click event listener to open mobile menu
             if (imageContainer) {
                 imageContainer.addEventListener('click', function () {
-                    if (isMobile()) {
-                        $(mobileMenuContainer).show();
-                    }
+                    $(mobileMenuContainer).show();
+                    // if (isMobile()) {
+                    // }
                 });
             }
 
@@ -164,9 +164,9 @@
 
             // Document click event listener to close mobile menu when clicking outside
             document.addEventListener('click', function () {
-                if (isMobile()) {
-                    $(mobileMenuContainer).hide();
-                }
+                $(mobileMenuContainer).hide();
+                // if (isMobile()) {
+                // }
             });
 
             // Scroll event listener to move the video along with the scroll

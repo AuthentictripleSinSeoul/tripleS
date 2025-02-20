@@ -144,17 +144,17 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Add tabs dynamically
-    for (let i = 0; i < songList.length; i++) {
-        const tab = document.createElement('div');
-        tab.classList.add('desktop-tab');
-        tab.innerHTML = `<span class="tab-text">${songData[songList[i]].name}</span>`;
-        tabsContainer.appendChild(tab);
+    // for (let i = 0; i < songList.length; i++) {
+    //     const tab = document.createElement('div');
+    //     tab.classList.add('desktop-tab');
+    //     tab.innerHTML = `<span class="tab-text">${songData[songList[i]].name}</span>`;
+    //     tabsContainer.appendChild(tab);
 
-        // Event listener for tab click
-        tab.addEventListener('click', function () {
-            changeTab(songList[i]);
-        });
-    }
+    //     // Event listener for tab click
+    //     tab.addEventListener('click', function () {
+    //         changeTab(songList[i]);
+    //     });
+    // }
 
     // Function to change the displayed image
     function showImage(imageSrc) {
@@ -177,7 +177,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         index = songList.indexOf(song)
         // Add active class to the clicked tab
-        tabsContainer.children[index].classList.add('active-tab');
+        // tabsContainer.children[index].classList.add('active-tab');
 
         // Change the displayed image
         showImage(song + ".jpg");
@@ -241,20 +241,21 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Check if the device is mobile and create the mobile menu
-    if (isMobile()) {
-        createMobileMenu();
-    }
+    createMobileMenu();
+    // if (isMobile()) {
+    // }
 
     // Function to check if the device is mobile view
     function isMobile() {
         return window.innerWidth <= 900; 
     }
 
-    window.addEventListener('resize', function() {
-        if (isMobile()) {
-            createMobileMenu();
-        }
-    });
+    // window.addEventListener('resize', function() {
+    //     // this.document.querySelector('.mobile-menu').remove()
+    //     createMobileMenu();
+    //     // if (isMobile()) {
+    //     // }
+    // });
 
     // Disable video scroll for mobile
     if (isMobile()) {
