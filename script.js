@@ -46,6 +46,14 @@ const songData = {
     girls_never_die: {
         name: "Girls Never Die",
         videosource: "9nnMo11jPtg"
+    },
+    inner_dance: {
+        name: "Inner Dance",
+        videosource: "cd2JwzxL1qw"
+    },
+    hit_the_floor: {
+        name: "Hit the Floor",
+        videosource: "0NtDMMj7w4M"
     }
 }
 
