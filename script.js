@@ -54,6 +54,10 @@ const songData = {
     hit_the_floor: {
         name: "Hit the Floor",
         videosource: "0NtDMMj7w4M"
+    },
+    are_you_alive: {
+        name: "깨어 (Are You Alive)",
+        videosource: ""
     }
 }
 
