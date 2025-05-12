@@ -57,7 +57,7 @@ const songData = {
     },
     are_you_alive: {
         name: "깨어 (Are You Alive)",
-        videosource: ""
+        videosource: "SC_WQaGXCX4"
     }
 }
 
