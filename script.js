@@ -58,6 +58,10 @@ const songData = {
     are_you_alive: {
         name: "깨어 (Are You Alive)",
         videosource: "SC_WQaGXCX4"
+    },
+    too_hot: {
+        name: "Too Hot",
+        videosource: "wKCeluzSszc"
     }
 }
 
@@ -103,6 +107,7 @@ function loadTextFromFile(fileName, videosource) {
             const loadImageButton = document.createElement('button');
             loadImageButton.innerText = '응원법 이미지 보기';
             loadImageButton.classList.add('text-container');
+            loadImageButton.classList.add('image-button');
             loadImageButton.style.display = 'block';
             loadImageButton.style.margin = '0 auto';
             loadImageButton.style.marginTop = '20px';
@@ -167,6 +172,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Create anx image element and set the source
         const image = document.createElement('img');
+        image.onload=()=>{document.querySelector('.image-button').style.display='block'}
+        image.onerror=()=>{document.querySelector('.image-button').style.display='none'}
         image.src = "images/" + imageSrc;
 
         // Append image to the container
@@ -204,7 +211,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (songList.includes(params)) {
         changeTab(params)
     } else {
-        changeTab("girls_never_die")
+        changeTab("are_you_alive")
     }  
 
     // Toggle mobile menu
