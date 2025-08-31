@@ -47,6 +47,10 @@ const songData = {
         name: "Girls Never Die",
         videosource: "9nnMo11jPtg"
     },
+    midnight_flower: {
+        name: "Midnight Flower",
+        videosource: "TK0UdWGyOPw"
+    },
     inner_dance: {
         name: "Inner Dance",
         videosource: "cd2JwzxL1qw"
