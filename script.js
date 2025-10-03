@@ -7,10 +7,10 @@ const songData = {
         name: "Generation",
         videosource: "AXzeTrC2Vlw"
     },
-    rolex: {
-        name: "Rolex",
-        videosource: "aFf9zpH5ahc"
-    },
+    // rolex: {
+    //     name: "Rolex",
+    //     videosource: "aFf9zpH5ahc"
+    // },
     rising: {
         name: "Rising",
         videosource: "R_l-UNaXztc"
@@ -19,10 +19,10 @@ const songData = {
         name: "Colorful",
         videosource: "0fWM8sVy6qM"
     },
-    new_look: {
-        name: "New Look",
-        videosource: "u11Lblh4whI"
-    },
+    // new_look: {
+    //     name: "New Look",
+    //     videosource: "u11Lblh4whI"
+    // },
     cherry_talk: {
         name: "Cherry Talk",
         videosource: "mNgB5dxVfGc"
@@ -39,10 +39,10 @@ const songData = {
         name: "Invincible",
         videosource: "HXJnD0w7kMY"
     },
-    just_do_it: {
-        name: "Just Do It",
-        videosource: "s3IfM-u5hVc?"
-    },
+    // just_do_it: {
+    //     name: "Just Do It",
+    //     videosource: "s3IfM-u5hVc?"
+    // },
     girls_never_die: {
         name: "Girls Never Die",
         videosource: "9nnMo11jPtg"
@@ -66,6 +66,10 @@ const songData = {
     too_hot: {
         name: "Too Hot",
         videosource: "wKCeluzSszc"
+    },
+    password: {
+        name: "Password",
+        videosource: "1lP8Mrr1s6U"
     }
 }
 
