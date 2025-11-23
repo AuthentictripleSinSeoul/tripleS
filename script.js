@@ -70,6 +70,26 @@ const songData = {
     password: {
         name: "Password",
         videosource: "1lP8Mrr1s6U"
+    },
+    cameo_love: {
+        name: "Cameo Love",
+        videosource: ""
+    },
+    bubble_gum_girl: {
+        name: "Bubble Gum Girl",
+        videosource: ""
+    },
+    fly_up: {
+        name: "Fly Up",
+        videosource: ""
+    },
+    qna: {
+        name: "Q&A",
+        videosource: ""
+    },
+    christmas_alone: {
+        name: "Christmas Alone",
+        videosource: ""
     }
 }
 
@@ -219,7 +239,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (songList.includes(params)) {
         changeTab(params)
     } else {
-        changeTab("are_you_alive")
+        changeTab("christmas_alone")
     }  
 
     // Toggle mobile menu

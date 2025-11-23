@@ -93,6 +93,8 @@ body, html {
     background-color: #181818;
     padding: 20px;
     z-index: 1500;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
 
 /* Styles to hide desktop tabs on mobile */
@@ -105,9 +107,9 @@ body, html {
         display: block;
     }
 
-    .mobile-menu {
+    /* .mobile-menu {
         display: block;
-    }
+    } */
 }
 
 /* Styles for mobile tab */
