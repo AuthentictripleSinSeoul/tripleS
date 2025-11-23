@@ -1,6 +1,7 @@
 var myParameter = "";
 const textContent = document.getElementById('text-content');
 const videoContainer = document.getElementById('video-container');
+const titleContent = document.getElementById('song-title')
 
 const songData = {
     generation: {
@@ -226,6 +227,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(myParameter);
 
         // Load and display text from a file
+        titleContent.innerText = songData[song].name
         loadTextFromFile(myParameter, videoid);
         const url = new URL(window.location.href);
         url.search = `?song=${song}`

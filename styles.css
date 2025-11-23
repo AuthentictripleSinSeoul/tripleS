@@ -171,6 +171,13 @@ body, html {
     z-index: -1;
 }
 
+#song-title {
+    color: #ffffff;
+    font-size: 27px;
+    text-align: center;
+    margin: 20px 0;
+}
+
 /* PC에서만 적용되는 스타일 */
 @media only screen and (min-width: 900px) {
     #video-background {
