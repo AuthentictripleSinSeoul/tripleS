@@ -74,7 +74,7 @@ const songData = {
     },
     cameo_love: {
         name: "Cameo Love",
-        videosource: ""
+        videosource: "_NW9aFlusoA"
     },
     bubble_gum_girl: {
         name: "Bubble Gum Girl",
