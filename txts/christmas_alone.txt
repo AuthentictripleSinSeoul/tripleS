@@ -18,7 +18,7 @@ But We Broke It
 녹아내려 촛불 앞엔 [Oh]
 
 행복은 멀리 찾을 수가 [없어]
-떨어진 눈도 반짝이고 있어
+떨어진 눈도 반짝이고 [있어]
 모든 게 설렌 이 순간에 멈춰
 빛날 뿐이야
 
@@ -67,3 +67,4 @@ I Know It’s All Meant To Be
 써 내려가 Story Of My Life
 I’ll Make It, 이 순간을 꼭 기억해
 [(tripleS)]
+[(함성)]
