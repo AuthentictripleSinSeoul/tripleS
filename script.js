@@ -91,6 +91,10 @@ const songData = {
     christmas_alone: {
         name: "Christmas Alone",
         videosource: "02btmamyTWE"
+    },
+    baby_flower: {
+        name: "Baby Flower",
+        videosource: ""
     }
 }
 
@@ -241,7 +245,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (songList.includes(params)) {
         changeTab(params)
     } else {
-        changeTab("christmas_alone")
+        changeTab("baby_flower")
     }  
 
     // Toggle mobile menu
