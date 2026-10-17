@@ -99,6 +99,10 @@ const songData = {
     sad_girls_schemin: {
         name: "Sad Girls Schemin'",
         videosource: "gMaXbIBEZPI"
+    },
+    andless: {
+        name: "Andless",
+        videosource: "BlA6intCGfI"
     }
 }
 
@@ -249,7 +253,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (songList.includes(params)) {
         changeTab(params)
     } else {
-        changeTab("baby_flower")
+        changeTab("andless")
     }  
 
     // Toggle mobile menu
